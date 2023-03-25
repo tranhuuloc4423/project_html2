@@ -1,0 +1,45 @@
+@mixin bgColor($bg: white) {
+    background-color: $bg;
+}
+
+@mixin color($color: $whiteColor) {
+    color: $color;
+}
+
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin absoluteCenter($direction: "left") {
+    position: absolute;
+    @if $direction == "left" {
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    @else if $direction == "top" {
+        top: 50%;
+        transform: translatey(-50%)
+    }
+
+    @else if $direction == "both" {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin pin-shared() {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    @include box(40px);
+    border-radius: 50%;
+    border: 1px solid $whiteColor;
+
+    & i, & span {
+        font-size: 1.4rem;
+    }
+}
+
